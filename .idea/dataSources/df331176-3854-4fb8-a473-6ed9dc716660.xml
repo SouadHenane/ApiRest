@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="bddjpa@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bddjpa">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="auth"/>
+    <schema id="4" parent="1" name="blog"/>
+    <schema id="5" parent="1" name="chat_1"/>
+    <schema id="6" parent="1" name="cnr"/>
+    <schema id="7" parent="1" name="demo"/>
+    <schema id="8" parent="1" name="esisba"/>
+    <schema id="9" parent="1" name="information_schema"/>
+    <schema id="10" parent="1" name="journal"/>
+    <schema id="11" parent="1" name="legrand"/>
+    <schema id="12" parent="1" name="mydb"/>
+    <schema id="13" parent="1" name="mysql"/>
+    <schema id="14" parent="1" name="new_schema"/>
+    <schema id="15" parent="1" name="performance_schema"/>
+    <schema id="16" parent="1" name="pfe"/>
+    <schema id="17" parent="1" name="pfe_2"/>
+    <schema id="18" parent="1" name="pfe_3"/>
+    <schema id="19" parent="1" name="sakila"/>
+    <schema id="20" parent="1" name="simple_cms_development"/>
+    <schema id="21" parent="1" name="simple_cms_test"/>
+    <schema id="22" parent="1" name="social_media"/>
+    <schema id="23" parent="1" name="studsoft"/>
+    <schema id="24" parent="1" name="sys"/>
+    <schema id="25" parent="1" name="tp-pattern"/>
+    <schema id="26" parent="1" name="tp2"/>
+    <schema id="27" parent="1" name="tpejb"/>
+    <schema id="28" parent="1" name="tutorial"/>
+    <schema id="29" parent="1" name="world"/>
+    <table id="30" parent="2" name="achat"/>
+    <table id="31" parent="2" name="clientdetail"/>
+    <table id="32" parent="2" name="clienttable"/>
+    <table id="33" parent="2" name="compte"/>
+    <table id="34" parent="2" name="produit"/>
+    <column id="35" parent="30" name="DateAchat">
+      <Position>1</Position>
+      <DataType>datetime(6)|0</DataType>
+    </column>
+    <column id="36" parent="30" name="Qte">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="30" name="idProduit">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="30" name="idClient">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="39" parent="30" name="FK81m9gigmch3p1o04af6vung12">
+      <ColNames>idProduit</ColNames>
+    </index>
+    <key id="40" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idClient
+idProduit</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="41" parent="30" name="FK81m9gigmch3p1o04af6vung12">
+      <ColNames>idProduit</ColNames>
+      <RefSchemaName>bddjpa</RefSchemaName>
+      <RefTableName>produit</RefTableName>
+      <RefColNames>idProduit</RefColNames>
+    </foreign-key>
+    <foreign-key id="42" parent="30" name="FKj54f8c22cvfceq8fvph3cimav">
+      <ColNames>idClient</ColNames>
+      <RefSchemaName>bddjpa</RefSchemaName>
+      <RefTableName>clienttable</RefTableName>
+      <RefColNames>idClient</RefColNames>
+    </foreign-key>
+    <column id="43" parent="31" name="idClientDetail">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="31" name="description">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="45" parent="31" name="idClient">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="46" parent="31" name="FK448bn1fvim2hkf9jpjj2ks7t4">
+      <ColNames>idClient</ColNames>
+    </index>
+    <key id="47" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idClientDetail</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="48" parent="31" name="FK448bn1fvim2hkf9jpjj2ks7t4">
+      <ColNames>idClient</ColNames>
+      <RefSchemaName>bddjpa</RefSchemaName>
+      <RefTableName>clienttable</RefTableName>
+      <RefColNames>idClient</RefColNames>
+    </foreign-key>
+    <column id="49" parent="32" name="idClient">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="32" name="code_postal">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="51" parent="32" name="Ville">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="52" parent="32" name="numero">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="32" name="rue">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="54" parent="32" name="date_naissance">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="55" parent="32" name="email">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="56" parent="32" name="nom">
+      <Position>8</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="32" name="prenom">
+      <Position>9</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="32" name="sexe">
+      <Position>10</Position>
+      <DataType>varchar(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="32" name="telephone">
+      <Position>11</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="60" parent="32" name="nom_prenom">
+      <ColNames>nom
+prenom</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="61" parent="32" name="UK_dgtpdj3e3m0r5ngb3rui08l7u">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idClient</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="63" parent="32" name="UK_dgtpdj3e3m0r5ngb3rui08l7u">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>UK_dgtpdj3e3m0r5ngb3rui08l7u</UnderlyingIndexName>
+    </key>
+    <key id="64" parent="32" name="nom_prenom">
+      <ColNames>nom
+prenom</ColNames>
+      <UnderlyingIndexName>nom_prenom</UnderlyingIndexName>
+    </key>
+    <column id="65" parent="33" name="login">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="33" name="dateCreation">
+      <Position>2</Position>
+      <DataType>datetime(6)|0</DataType>
+    </column>
+    <column id="67" parent="33" name="password">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="33" name="idClient">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="69" parent="33" name="FKmk4k68ahvpc9xpn3o3ytlrh1">
+      <ColNames>idClient</ColNames>
+    </index>
+    <key id="70" parent="33" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>login</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="71" parent="33" name="FKmk4k68ahvpc9xpn3o3ytlrh1">
+      <ColNames>idClient</ColNames>
+      <RefSchemaName>bddjpa</RefSchemaName>
+      <RefTableName>clienttable</RefTableName>
+      <RefColNames>idClient</RefColNames>
+    </foreign-key>
+    <column id="72" parent="34" name="idProduit">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="73" parent="34" name="designation">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="34" name="prix">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="75" parent="34" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idProduit</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

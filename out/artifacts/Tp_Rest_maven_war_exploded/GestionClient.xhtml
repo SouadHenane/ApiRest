@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<h:body>
+dkkdkd
+    <h:form id="form">
+    <p:growl id="msgs" showDetail="true"/>
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <p:commandButton value="Add new Client" styleClass="ui-priority-primary"     action="AddClient" />
+            </div>
+        </div>
+
+    <p:dataTable id="client1" var="client" value="#{clientController.lesClients}" editable="true" style="margin-bottom:20px">
+        <f:facet name="header">        Client Editing     </f:facet>
+
+        <p:ajax event="rowEdit" listener="#{clientController.onRowEdit}" update=":form:msgs client1"/>
+        <p:ajax event="rowEditCancel" listener="#{clientController.onRowCancel}" update=":form:msgs client1"/>
+
+        <p:column headerText="Nom">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{client.nom}"/></f:facet>
+                <f:facet name="input"><p:inputText id="modelInput" value="#{client.nom}" style="width:100%"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+
+        <p:column headerText="Prenom">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{client.prenom}"/></f:facet>
+                <f:facet name="input"><p:inputText id="modelInput2" value="#{client.prenom}" style="width:100%"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+
+        <p:column headerText="Email">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{client.email}"/></f:facet>
+                <f:facet name="input"><p:inputText value="#{client.email}" style="width:100%" label="Email"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+
+        <p:column headerText="Sexe">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{client.sexe}"/></f:facet>
+                <f:facet name="input">
+                    <h:selectOneMenu value="#{client.sexe}" style="width:100%">
+                        <f:selectItem  itemValue="homme" noSelectionOption="true" />
+                        <f:selectItem  itemValue="femme" />
+                    </h:selectOneMenu>
+                </f:facet>
+            </p:cellEditor>
+        </p:column>
+
+        <p:column style="width:32px">
+            <p:rowEditor/>
+        </p:column>
+    </p:dataTable>
+
+
+
+    </h:form>
+</h:body>
+</html>
